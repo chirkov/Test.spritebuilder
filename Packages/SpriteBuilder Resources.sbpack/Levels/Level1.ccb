@@ -777,12 +777,12 @@
 							<real>0.0</real>
 						</array>
 						<array>
-							<real>0.0</real>
-							<real>27</real>
+							<real>12.898468017578125</real>
+							<real>26.500030517578125</real>
 						</array>
 						<array>
-							<real>113</real>
-							<real>27</real>
+							<real>100.53521728515625</real>
+							<real>25.183624267578125</real>
 						</array>
 						<array>
 							<real>113</real>
@@ -797,12 +797,12 @@
 								<real>0.0</real>
 							</array>
 							<array>
-								<real>113</real>
-								<real>27</real>
+								<real>100.53521728515625</real>
+								<real>25.183624267578125</real>
 							</array>
 							<array>
-								<real>0.0</real>
-								<real>27</real>
+								<real>12.898468017578125</real>
+								<real>26.500030517578125</real>
 							</array>
 							<array>
 								<real>0.0</real>
@@ -903,8 +903,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1078,6 +1076,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
