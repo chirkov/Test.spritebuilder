@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2298A6E21AA8B2710015F0F9 /* Penguin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2298A6E11AA8B2710015F0F9 /* Penguin.m */; };
 		2298A6E91AA8B2980015F0F9 /* Seal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2298A6E81AA8B2980015F0F9 /* Seal.m */; };
+		2298A6F81AAD870B0015F0F9 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 2298A6F71AAD870B0015F0F9 /* Gameplay.m */; };
 		5B121030197484FA004C1E1D /* TestActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* TestActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
@@ -155,6 +156,8 @@
 		2298A6E11AA8B2710015F0F9 /* Penguin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Penguin.m; path = Source/Penguin.m; sourceTree = "<group>"; };
 		2298A6E71AA8B2980015F0F9 /* Seal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Seal.h; path = Source/Seal.h; sourceTree = "<group>"; };
 		2298A6E81AA8B2980015F0F9 /* Seal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Seal.m; path = Source/Seal.m; sourceTree = "<group>"; };
+		2298A6F61AAD870B0015F0F9 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gameplay.h; path = Source/Gameplay.h; sourceTree = "<group>"; };
+		2298A6F71AAD870B0015F0F9 /* Gameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gameplay.m; path = Source/Gameplay.m; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121011197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -474,6 +477,8 @@
 		B77F1B2517B978D7009739AE = {
 			isa = PBXGroup;
 			children = (
+				2298A6F61AAD870B0015F0F9 /* Gameplay.h */,
+				2298A6F71AAD870B0015F0F9 /* Gameplay.m */,
 				2298A6E71AA8B2980015F0F9 /* Seal.h */,
 				2298A6E81AA8B2980015F0F9 /* Seal.m */,
 				2298A6E01AA8B2710015F0F9 /* Penguin.h */,
@@ -831,6 +836,7 @@
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				2298A6E21AA8B2710015F0F9 /* Penguin.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				2298A6F81AAD870B0015F0F9 /* Gameplay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
