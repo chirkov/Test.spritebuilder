@@ -15,14 +15,16 @@
     CCNode *_contentNode;
     CCNode *_pullbackNode;
     CCNode *_mouseJointNode;
+    CCNode *_currentPenguin;
     CCPhysicsJoint *_mouseJoint;
+    CCPhysicsJoint *_penguinCatapultJoin;
 }
 
 - (void)didLoadFromCCB
 {
     self.userInteractionEnabled = true;
     
-    _physicsNode.debugDraw = true;
+    _physicsNode.debugDraw = false;
     
     _pullbackNode.physicsBody.collisionMask = @[];
     _mouseJointNode.physicsBody.collisionMask = @[];
@@ -40,6 +42,13 @@
         _mouseJointNode.position = touchLocation;
         
         _mouseJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_mouseJointNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:0.f stiffness:3000.f damping:150.f];
+        
+        _currentPenguin = [CCBReader load:@"Penguin"];
+        CGPoint penguinPosition = [_catapultArm convertToWorldSpace:ccp(34, 138)];
+        _currentPenguin.position = [_physicsNode convertToNodeSpace:penguinPosition];
+        [_physicsNode addChild:_currentPenguin];
+        _currentPenguin.physicsBody.allowsRotation = FALSE;
+        _penguinCatapultJoin = [CCPhysicsJoint connectedPivotJointWithBodyA:_currentPenguin.physicsBody bodyB:_catapultArm.physicsBody anchorA:_currentPenguin.anchorPointInPoints];
     }
 }
 
@@ -52,9 +61,16 @@
 - (void)releaseCatapult {
     if (_mouseJoint != nil)
     {
-        // releases the joint and lets the catapult snap back
         [_mouseJoint invalidate];
+        [_penguinCatapultJoin invalidate];
+        
         _mouseJoint = nil;
+        _penguinCatapultJoin = nil;
+        
+        _currentPenguin.physicsBody.allowsRotation = TRUE;
+        
+        CCActionFollow *fololow = [CCActionFollow actionWithTarget:_currentPenguin worldBoundary:self.boundingBox];
+        [_contentNode runAction:fololow];
     }
 }
 
