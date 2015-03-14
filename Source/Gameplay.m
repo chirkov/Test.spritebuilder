@@ -7,6 +7,7 @@
 //
 
 #import "Gameplay.h"
+#import "CCPhysics+ObjectiveChipmunk.h";
 
 @implementation Gameplay {
     CCPhysicsNode *_physicsNode;
@@ -25,12 +26,14 @@
     self.userInteractionEnabled = true;
     
     _physicsNode.debugDraw = false;
+    _physicsNode.collisionDelegate = self;
     
     _pullbackNode.physicsBody.collisionMask = @[];
     _mouseJointNode.physicsBody.collisionMask = @[];
     
     CCScene *level = [CCBReader loadAsScene:@"Levels/Level1"];
     [_levelNode addChild:level];
+    
 }
 
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
@@ -102,6 +105,24 @@
 
 - (void)retry {
     [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:@"Gameplay"]];
+}
+
+- (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
+    float energy = [pair totalKineticEnergy];
+    
+    if (energy > 5000.f) {
+        [[_physicsNode space] addPostStepBlock:^{
+            [self sealRemoved:nodeA];
+        } key:nodeA];
+    }
+}
+
+- (void)sealRemoved:(CCNode *)seal {
+    CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:@"SealExplosion"];
+    explosion.autoRemoveOnFinish = TRUE;
+    explosion.position = seal.position;
+    [seal.parent addChild:explosion];
+    [seal removeFromParent];
 }
 
 @end
